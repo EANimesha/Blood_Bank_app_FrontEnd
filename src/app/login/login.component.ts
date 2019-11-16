@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     // console.log(JSON.stringify(this.loginForm.value));
     this._auth.login(JSON.stringify(this.loginForm.value))
     .subscribe(
-      data => {console.log(data); this._router.navigate(['/user']); } ,
+      data => {console.log(data); this._router.navigate(['/user/','5dd0584e23949217404b8f93']); } ,
       error => console.error(error)
     );
   }

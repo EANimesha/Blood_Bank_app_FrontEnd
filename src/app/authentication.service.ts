@@ -28,4 +28,13 @@ export class AuthenticationService {
       headers: new HttpHeaders().append('Content-Type', 'application/json')
     });
   }
+
+  getUser(id:any){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.get('http://127.0.0.1:3000/viewers/'+ id,{headers});
+  }
+
+  getDonars(){
+    return this._http.get('http://127.0.0.1:3000/viewers/donars');
+  }
 }

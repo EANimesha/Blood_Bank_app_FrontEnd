@@ -5,4 +5,8 @@ export class User{
   email: string;
   password:string;
   date:Date;
+  donar: Boolean;
+  blood_type: String;
+  weight: Int16Array;
+  height: Int16Array;
 }
