@@ -1,0 +1,22 @@
+<h1>Requests List</h1>
+
+      <div class= "container">
+        <div *ngFor= "let req of requests">
+          <div class="col-md-3">
+            <p>Viewer id : {{req.viewer_id}} </p>
+          </div>
+          <div class="col-md-3">
+            <p>Donar id : {{req.donar_id}} </p>
+          </div>
+          <div class="col-md-3">
+            <p>Donar Details :{{getUser(req.donar_id)}} </p>
+          </div>
+          <div class="col-md-3">
+              <p>Date:{{req.created}}</p>
+          </div>
+          <div class="col-md-3">
+            <p>Status:</p>
+        </div>
+          <hr>
+        </div>
+      </div>
