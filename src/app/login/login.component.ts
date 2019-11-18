@@ -2,6 +2,7 @@ import { AuthenticationService } from './../authentication.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from '../models/User';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  user: User;
+
   loginForm: FormGroup= new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
     password:  new FormControl(null, Validators.required)
@@ -30,7 +33,11 @@ export class LoginComponent implements OnInit {
     // console.log(JSON.stringify(this.loginForm.value));
     this._auth.login(JSON.stringify(this.loginForm.value))
     .subscribe(
-      data => {console.log(data); this._router.navigate(['/user/','5dd0584e23949217404b8f93']); } ,
+      (data:any) => {
+        this.user = data;
+        // console.log(this.user._id);
+        this._router.navigate(['/user/', this.user._id]);
+      } ,
       error => console.error(error)
     );
   }

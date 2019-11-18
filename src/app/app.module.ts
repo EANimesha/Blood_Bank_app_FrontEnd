@@ -12,13 +12,17 @@ import { FormsModule, ReactiveFormsModule  } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { UserhomeComponent } from './userhome/userhome.component';
+import { RequestsComponent } from './userhome/requests/requests.component';
+import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
     LoginComponent,
-    UserhomeComponent
+    UserhomeComponent,
+    RequestsComponent,
+    ReceivedReqComponent
   ],
   imports: [
     BrowserModule,

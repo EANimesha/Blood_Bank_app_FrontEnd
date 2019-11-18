@@ -1,34 +1,75 @@
-<div class="col-sm-12">
+<mat-sidenav-container  >
+  <mat-sidenav  #sidenav mode="side" opened style="background-color:#b0c5e8">
+    <mat-nav-list class="sidenav-list">
+      <a mat-list-item routerLink="/user/requests/{{user._id}}"  (click)="sidenav.close()" [routerLinkActive]="['is-active']">
+        <span>Sent Requests</span>
+      </a>
+      <a mat-list-item routerLink="/user/requests_received/{{user._id}}"  (click)="sidenav.close()" [routerLinkActive]="['is-active']" *ngIf="user.donar==true" >
+        <span>Requests Received</span>
+      </a>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()" [routerLinkActive]="['is-active']">
+        <span>My History</span>
+      </a>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()" [routerLinkActive]="['is-active']" >
+        <span>Update Profile</span>
+      </a>
+      <a mat-list-item routerLink="/" (click)="sidenav.close()" [routerLinkActive]="['is-active']">
+        <span>Delete Profile</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="toolbar">
+      <div>
+        <button mat-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+      </div>
+    </mat-toolbar>
+
+
+
+<div class="">
     <div class="jumbotron">
-        <h1 class="display-4">Hello,{{user.first_name}}</h1>
-        <p class="lead">You have successfully logged in to our system.</p>
+       <h1 class="display-4">Hello,{{user.first_name}}</h1>
+        <p class="lead">You have successfully logged in to our system</p>
+        <p> You are a Donar= {{user.donar}}</p>
         <hr class="my-4">
-</div>
 
-<h1>Donars List</h1>
 
-<div class= "container">
-  <div *ngFor= "let user of donars">
-    <div class="col-md-3">
-      {{user.first_name}}
+      <h1>Donars List</h1>
 
-      {{user.last_name}}
+      <div class= "container">
+        <div *ngFor= "let donar of donars">
+          <div class="col-md-3">
+            {{donar.first_name}}
+
+            {{donar.last_name}}
+          </div>
+          <div class="col-md-3">
+            {{donar.email}}
+          </div>
+          <div class="col-md-3">
+            {{donar.blood_type}}
+          </div>
+          <div class="col-md-3">
+            {{donar.weight}}
+          </div>
+          <div class="col-md-3">
+            {{donar.height}}
+          </div>
+          <div class="col-md-3">
+            <button  #btn_req mat-raised-button color="primary" (click)="submitRequest(donar._id,$event)">Request</button>
+          </div>
+          <hr>
+        </div>
+      </div>
     </div>
-    <div class="col-md-3">
-      {{user.email}}
-    </div>
-    <div class="col-md-3">
-      {{user.blood_type}}
-    </div>
-    <div class="col-md-3">
-      {{user.weight}}
-    </div>
-    <div class="col-md-3">
-      {{user.height}}
-    </div>
-    <div class="col-md-3">
-      <input type="button"  value= "Request" class= "btn btn-danger">
-    </div>
-    <hr>
   </div>
-</div>
+      <main>
+      <router-outlet></router-outlet>
+    </main>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+

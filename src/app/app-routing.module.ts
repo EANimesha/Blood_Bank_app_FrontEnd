@@ -1,3 +1,5 @@
+import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
+import { RequestsComponent } from './userhome/requests/requests.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
@@ -11,7 +13,9 @@ const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'user/:id', component: UserhomeComponent}
+    {path: 'user/:id', component: UserhomeComponent},
+    {path: 'user/requests/:id', component: RequestsComponent},
+    {path: 'user/requests_received/:id' , component: ReceivedReqComponent}
 ];
 
 @NgModule({
