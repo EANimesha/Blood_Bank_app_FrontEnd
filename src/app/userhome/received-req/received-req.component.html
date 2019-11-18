@@ -1,0 +1,26 @@
+<h1>Requests List</h1>
+
+      <div class= "container">
+        <div *ngFor= "let req of requests">
+          <div class="col-md-3">
+              <p>Donar id : {{req.donar_id}} </p>
+          </div>
+          <div class="col-md-3">
+            <p>Viewer id : {{req.viewer_id}} </p>
+          </div>
+          <div class="col-md-3">
+            <p>requester details </p>
+          </div>
+          <div class="col-md-3">
+              <p>Date:{{req.created}}</p>
+          </div>
+          <div class="col-md-3">
+            <p>Status:</p>
+        </div>
+        <div class="col-md-3">
+            <button   mat-raised-button color="primary" class="m-2">Accept</button>
+            <button   mat-raised-button color="accent">Decline</button>
+          </div>
+          <hr>
+        </div>
+      </div>
