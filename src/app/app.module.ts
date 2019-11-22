@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { UserhomeComponent } from './userhome/userhome.component';
 import { RequestsComponent } from './userhome/requests/requests.component';
 import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
+import { ProfileComponent } from './userhome/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ReceivedReqComponent } from './userhome/received-req/received-req.compo
     LoginComponent,
     UserhomeComponent,
     RequestsComponent,
-    ReceivedReqComponent
+    ReceivedReqComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

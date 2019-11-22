@@ -1,3 +1,4 @@
+import { ProfileComponent } from './userhome/profile/profile.component';
 import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
 import { RequestsComponent } from './userhome/requests/requests.component';
 import { UserhomeComponent } from './userhome/userhome.component';
@@ -15,7 +16,8 @@ const routes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: 'user/:id', component: UserhomeComponent},
     {path: 'user/requests/:id', component: RequestsComponent},
-    {path: 'user/requests_received/:id' , component: ReceivedReqComponent}
+    {path: 'user/requests_received/:id' , component: ReceivedReqComponent},
+    {path: 'user/profile/:id' , component: ProfileComponent}
 ];
 
 @NgModule({
