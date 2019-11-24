@@ -1,71 +1,51 @@
-<mat-sidenav-container  >
-  <mat-sidenav  #sidenav mode="side" opened style="background-color:#b0c5e8">
+<mat-sidenav-container>
+  <mat-sidenav  #sidenav mode="side" opened style="background-color:#363030">
     <mat-nav-list class="sidenav-list">
-      <a mat-list-item routerLink="/user/requests/{{user._id}}"  (click)="sidenav.close()" [routerLinkActive]="['is-active']">
-        <span>Sent Requests</span>
+        <img src="https://i.pinimg.com/originals/d0/bd/93/d0bd93f0511758c25f9bfa7a2b86793c.png" width="215px">
+        <hr>
+      <a mat-list-item routerLink="requests"  (click)="sidenav.close()" [routerLinkActive]="['is-active']">
+        <span class="text-white">Sent Requests</span>
       </a>
-      <a mat-list-item routerLink="/user/requests_received/{{user._id}}"  (click)="sidenav.close()" [routerLinkActive]="['is-active']" *ngIf="user.donar==true" >
-        <span>Requests Received</span>
+      <hr>
+      <a mat-list-item routerLink="requests_received"  (click)="sidenav.close()" [routerLinkActive]="['is-active']" *ngIf="user.donar==true" >
+        <span class="text-white">Requests Received</span>
       </a>
+      <hr>
       <a mat-list-item routerLink="" (click)="sidenav.close()" [routerLinkActive]="['is-active']">
-        <span>My History</span>
+        <span class="text-white">My History</span>
       </a>
-      <a mat-list-item routerLink="//user/profile/{{user._id}}" (click)="sidenav.close()" [routerLinkActive]="['is-active']" >
-        <span>Update Profile</span>
+      <hr>
+      <a mat-list-item routerLink="profile" (click)="sidenav.close()" [routerLinkActive]="['is-active']" >
+        <span class="text-white">Update Profile</span>
       </a>
+      <hr>
       <a mat-list-item routerLink="//user/profile/{{user._id}}" (click)="sidenav.close()" [routerLinkActive]="['is-active']">
-        <span>Delete Profile</span>
+        <span class="text-white">Delete Profile</span>
       </a>
+      <hr>
+      <p></p>
+      <img src="https://i.pinimg.com/originals/d1/4b/42/d14b4259b3a99fe40b1f41fb92a7d797.jpg" width="215px">
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar class="toolbar bg-dark">
       <div>
         <button mat-button (click)="sidenav.toggle()">
-          <mat-icon>menu</mat-icon>
+          <mat-icon class="text-white">menu</mat-icon>
         </button>
       </div>
     </mat-toolbar>
 
-
-
-<div class="">
-    <div class="jumbotron">
-       <h1 class="display-4">Hello,{{user.first_name}}</h1>
-        <p class="lead">You have successfully logged in to our system</p>
-        <p> You are a Donar= {{user.donar}}</p>
-        <hr class="my-4">
-
-
-      <h1>Donars List</h1>
-
-      <div class= "container">
-        <div *ngFor= "let donar of donars">
-          <div class="col-md-3">
-            {{donar.first_name}}
-
-            {{donar.last_name}}
-          </div>
-          <div class="col-md-3">
-            {{donar.email}}
-          </div>
-          <div class="col-md-3">
-            {{donar.blood_type}}
-          </div>
-          <div class="col-md-3">
-            {{donar.weight}}
-          </div>
-          <div class="col-md-3">
-            {{donar.height}}
-          </div>
-          <div class="col-md-3">
-            <button  #btn_req mat-raised-button color="primary" (click)="submitRequest(donar._id,$event)">Request</button>
-          </div>
-          <hr>
-        </div>
-      </div>
-    </div>
+    <div class="float-lg-right align-top mt-4 mr-4">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBWmiNoNMc-Cpm4_ZmGvxoSyDHErb7F9O8oBJRzEZM92XlMIdS&s" width="400px"/>
+     </div>
+  <div class="jumbotron">
+     <h1 class="display-4">Hello,{{user.first_name}}</h1>
+      <p class="lead">You have successfully logged in to our system</p>
+      <p> You are a Donar= {{user.donar}}</p>
+    <hr class="my-4">
   </div>
+
       <main>
       <router-outlet></router-outlet>
     </main>

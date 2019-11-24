@@ -14,8 +14,8 @@ export class ReceivedReqComponent implements OnInit {
   constructor(private route: ActivatedRoute, private _req: RequestsService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
+    this.route.parent.params.subscribe(params => {
+      this.id = params['id'];
     });
 
     // getRequests

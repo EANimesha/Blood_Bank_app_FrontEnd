@@ -12,7 +12,6 @@ import { AuthenticationService } from '../authentication.service';
 export class UserhomeComponent implements OnInit {
   searchText;
   user: User;
-  donars : User[] = [];
   id;
   first_name: string;
   donar:Boolean;
@@ -32,23 +31,17 @@ export class UserhomeComponent implements OnInit {
       });
     });
 
-    //getDonars
-    this._auth.getDonars()
-    .subscribe((res: any) => {
-      this.donars = res;
-      // console.log(this.donars);
-    }, err => {
-      console.log(err);
-    });
+    // //getDonars
+    // this._auth.getDonars()
+    // .subscribe((res: any) => {
+    //   this.donars = res;
+    //   // console.log(this.donars);
+    // }, err => {
+    //   console.log(err);
+    // });
 
   }
 
-  submitRequest(donar_id: any,event){
-    this._req.add(JSON.stringify({viewer_id: this.id, donar_id:donar_id}))
-    .subscribe(
-      data=> {console.log(data); window.alert(JSON.stringify(data))},
-      error=>{console.error(error);window.alert(JSON.stringify(error));}
-    )
-  }
+
 
 }
