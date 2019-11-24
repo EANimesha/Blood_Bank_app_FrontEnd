@@ -15,6 +15,10 @@ import { UserhomeComponent } from './userhome/userhome.component';
 import { RequestsComponent } from './userhome/requests/requests.component';
 import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
 import { ProfileComponent } from './userhome/profile/profile.component';
+import { DonarsComponent } from './userhome/donars/donars.component';
+import { ParticlesDirective } from './particles.directive'
+
+
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { ProfileComponent } from './userhome/profile/profile.component';
     UserhomeComponent,
     RequestsComponent,
     ReceivedReqComponent,
-    ProfileComponent
+    ProfileComponent,
+    DonarsComponent,
+    ParticlesDirective
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,7 @@ import { ProfileComponent } from './userhome/profile/profile.component';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

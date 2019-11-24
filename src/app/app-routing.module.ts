@@ -1,3 +1,4 @@
+import { DonarsComponent } from './userhome/donars/donars.component';
 import { ProfileComponent } from './userhome/profile/profile.component';
 import { ReceivedReqComponent } from './userhome/received-req/received-req.component';
 import { RequestsComponent } from './userhome/requests/requests.component';
@@ -14,10 +15,15 @@ const routes: Routes = [
     {path: '', redirectTo: 'login', pathMatch: 'full'},
     {path: 'login', component: LoginComponent},
     {path: 'register', component: RegisterComponent},
-    {path: 'user/:id', component: UserhomeComponent},
-    {path: 'user/requests/:id', component: RequestsComponent},
-    {path: 'user/requests_received/:id' , component: ReceivedReqComponent},
-    {path: 'user/profile/:id' , component: ProfileComponent}
+    {path: 'user/:id', component: UserhomeComponent,
+      children: [
+        {path: 'requests', component: RequestsComponent},
+        {path: 'requests_received' , component: ReceivedReqComponent},
+        {path: 'profile' , component: ProfileComponent},
+        {path:'donars', component: DonarsComponent},
+        {path: '', redirectTo:'donars', pathMatch: 'full'}
+      ]
+    },
 ];
 
 @NgModule({

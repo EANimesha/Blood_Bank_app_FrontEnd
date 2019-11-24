@@ -1,27 +1,32 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Blood Banking System</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark text-white">
+  <div>
+    <img src="https://miro.medium.com/max/1838/1*KJACFKJ0GKtnhgR7OmlPFA.gif" alt="logo" height="100px"/>
+  </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/register']" routerLinkActive="active">Register
+    <div class="collapse navbar-collapse float-right " id="navbarNav">
+        <ul class="nav navbar-nav" >
+            <li class="nav-item ">
+                <a class="nav-link text-white" [routerLink]="['/register']" routerLinkActive="active">Register
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/login']" routerLinkActive="active">Login</a>
+                <a class="nav-link text-white" [routerLink]="['/login']" routerLinkActive="active">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" [routerLink]="['/user']" routerLinkActive="active">User Page</a>
+                <a class="nav-link text-white" [routerLink]="['/user']" routerLinkActive="active">User Page</a>
             </li>
         </ul>
     </div>
   </nav>
 
-
+  <!-- <particles [style]="style" [width]="width" [height]="height" [params]="params"></particles> -->
+  <div class="particles-wrapper">
+    <canvas repulse-particles number=60></canvas>
+  </div>
 
   <div class="continer-fluid">
     <div class="row">
