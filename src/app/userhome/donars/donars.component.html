@@ -1,0 +1,31 @@
+<!-- <div class=""> -->
+  <div class="jumbotron d-flex align-items-center">
+    <div class= "container">
+        <h1>Donars List</h1>
+      <div *ngFor= "let donar of donars">
+          <mat-card class="example-card  p-lg-4 bg-light">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image m-2">
+                    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                </div>
+
+                <mat-card-title >Blood Type: {{donar.blood_type}}</mat-card-title>
+                <mat-card-subtitle>Name : {{donar.first_name}}  {{donar.last_name}}</mat-card-subtitle>
+              </mat-card-header>
+
+              <mat-card-content>
+                <p>
+                  Email : {{donar.email}}<br>
+                  Weight : {{donar.weight}}<br>
+                  Height : {{donar.height}}<br>
+                </p>
+              </mat-card-content>
+              <mat-card-actions class="text-right">
+                  <button  #btn_req mat-raised-button class="bg-danger" (click)="submitRequest(donar._id,$event)">Request</button>
+              </mat-card-actions>
+            </mat-card>
+     <hr>
+      </div>
+      </div>
+  </div>
+<!-- </div> -->
