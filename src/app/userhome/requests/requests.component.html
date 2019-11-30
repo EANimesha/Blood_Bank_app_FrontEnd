@@ -1,22 +1,31 @@
 <h1>Requests List</h1>
 
+
       <div class= "container">
         <div *ngFor= "let req of requests">
-          <div class="col-md-3">
-            <p>Viewer id : {{req.viewer_id}} </p>
-          </div>
-          <div class="col-md-3">
-            <p>Donar id : {{req.donar_id}} </p>
-          </div>
-          <div class="col-md-3">
-            <p>Donar Details :{{getUser(req.donar_id)}} </p>
-          </div>
-          <div class="col-md-3">
-              <p>Date:{{req.created}}</p>
-          </div>
-          <div class="col-md-3">
-            <p>Status:</p>
-        </div>
-          <hr>
+
+            <mat-card class="example-card  p-lg-4 bg-light">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image m-2">
+                      <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                  </div>
+
+                  <mat-card-title >Status: Status</mat-card-title>
+                  <mat-card-subtitle>Name : {{req.donar.first_name}}  {{req.donar.last_name}}</mat-card-subtitle>
+                </mat-card-header>
+
+                <mat-card-content>
+                  <p>
+                    Date Requested : {{req.donar.date}}<br>
+                    Email : {{req.donar.email}}<br>
+                    Weight : {{req.donar.weight}}<br>
+                    Height : {{req.donar.height}}<br>
+                  </p>
+                </mat-card-content>
+                <!-- <mat-card-actions class="text-right">
+                    <button  #btn_req mat-raised-button class="bg-danger" (click)="submitRequest(donar._id,$event)">Request</button>
+                </mat-card-actions> -->
+              </mat-card>
+       <hr>
         </div>
       </div>

@@ -20,17 +20,23 @@ export class RequestsComponent implements OnInit {
   ngOnInit() {
     this.route.parent.params.subscribe(params => {
       this.id = params['id'];
-      // console.log(this.id)
     });
 
     // getRequests
     this._req.get(this.id)
     .subscribe((res: any) => {
       this.requests = res;
-      // console.log(this.requests[0]);
+      this.requests.forEach(element => {
+        this._auth.getUser(element.donar_id).subscribe((res:any)=>{
+          element.donar=res[0]
+        })
+      });
+      // console.log(this.requests);
+
     }, err => {
       console.log(err);
     });
+
   }
 
 
@@ -41,7 +47,7 @@ export class RequestsComponent implements OnInit {
     // }, err => {
     //   console.log(err);
     // });
-    console.log(vid);
+    // console.log(vid);
     return vid;
   }
 

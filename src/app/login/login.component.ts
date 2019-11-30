@@ -11,6 +11,7 @@ import { User } from '../models/User';
 })
 export class LoginComponent implements OnInit {
   user: User;
+  token: string;
 
   loginForm: FormGroup= new FormGroup({
     email: new FormControl(null, [Validators.email, Validators.required]),
@@ -34,9 +35,12 @@ export class LoginComponent implements OnInit {
     this._auth.login(JSON.stringify(this.loginForm.value))
     .subscribe(
       (data:any) => {
-        this.user = data;
-        // console.log(this.user._id);
-        this._router.navigate(['/user/', this.user._id]);
+        this.token = data;
+        this._auth.saveToken(this.token);
+        // this.user = data;
+        // // console.log(this.user._id);
+        // this._router.navigate(['/user/', this.user._id]);
+        this._router.navigate(['/user']);
       } ,
       error => console.error(error)
     );

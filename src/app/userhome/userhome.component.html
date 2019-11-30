@@ -3,6 +3,10 @@
     <mat-nav-list class="sidenav-list">
         <img src="https://i.pinimg.com/originals/d0/bd/93/d0bd93f0511758c25f9bfa7a2b86793c.png" width="215px">
         <hr>
+        <a mat-list-item routerLink="donars"  (click)="sidenav.close()" [routerLinkActive]="['is-active']">
+            <span class="text-white">User Home</span>
+          </a>
+          <hr>
       <a mat-list-item routerLink="requests"  (click)="sidenav.close()" [routerLinkActive]="['is-active']">
         <span class="text-white">Sent Requests</span>
       </a>
@@ -40,13 +44,13 @@
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBWmiNoNMc-Cpm4_ZmGvxoSyDHErb7F9O8oBJRzEZM92XlMIdS&s" width="400px"/>
      </div>
   <div class="jumbotron">
-     <h1 class="display-4">Hello,{{user.first_name}}</h1>
+     <h1 class="display-4">Hello,{{user.first_name}} !!!</h1>
       <p class="lead">You have successfully logged in to our system</p>
-      <p> You are a Donar= {{user.donar}}</p>
+      <h3>As a Viewer <span *ngIf="user.donar" > and a Donar </span></h3>
     <hr class="my-4">
   </div>
 
-      <main>
+    <main class="p-4">
       <router-outlet></router-outlet>
     </main>
 

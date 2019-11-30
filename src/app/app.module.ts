@@ -17,6 +17,7 @@ import { ReceivedReqComponent } from './userhome/received-req/received-req.compo
 import { ProfileComponent } from './userhome/profile/profile.component';
 import { DonarsComponent } from './userhome/donars/donars.component';
 import { ParticlesDirective } from './particles.directive'
+import { FilterPipeModule } from 'ngx-filter-pipe';
 
 
 
@@ -40,6 +41,7 @@ import { ParticlesDirective } from './particles.directive'
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FilterPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

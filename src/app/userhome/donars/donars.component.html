@@ -1,8 +1,11 @@
 <!-- <div class=""> -->
   <div class="jumbotron d-flex align-items-center">
+    <input type="text" [(ngModel)]="userFilter" placeholder="Type to filter by name"/>
+
+
     <div class= "container">
         <h1>Donars List</h1>
-      <div *ngFor= "let donar of donars">
+      <div *ngFor= "let donar of donars | filterBy: userFilter">
           <mat-card class="example-card  p-lg-4 bg-light">
               <mat-card-header>
                 <div mat-card-avatar class="example-header-image m-2">
@@ -26,6 +29,9 @@
             </mat-card>
      <hr>
       </div>
+      <p *ngIf="(donars | filterBy: userFilter).length === 0">
+          No matching elements
+        </p>
       </div>
   </div>
 <!-- </div> -->

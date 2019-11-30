@@ -10,3 +10,19 @@ export class User{
   weight: Int16Array;
   height: Int16Array;
 }
+
+export interface UserDetails {
+  user: User;
+  exp: number;
+  iat: number;
+}
+
+interface TokenResponse {
+  token: string;
+}
+
+export interface TokenPayload {
+  email: string;
+  password: string;
+  name?: string;
+}
