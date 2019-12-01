@@ -1,7 +1,7 @@
 import { User } from './../../models/User';
 import { ProfileService } from './../../profile.service';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/authentication.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
@@ -25,22 +25,20 @@ export class ProfileComponent implements OnInit {
     height : new FormControl(),
   });
 
-  constructor(private route: ActivatedRoute, private _profile: ProfileService , private _auth: AuthenticationService, fb: FormBuilder) { }
+  constructor(private route: Router, private _profile: ProfileService , private _auth: AuthenticationService, fb: FormBuilder) { }
 
   ngOnInit() {
-    this.route.parent.params.subscribe(params => {
-      this.id = params['id'];
-      // console.log(this.id)
-      this._auth.getUser(this.id).subscribe((res: any) => {
-        this.user = res[0];
-        // console.log(this.user);
+    if (this._auth.isLoggedIn) {
+      this._auth.getUser(123).subscribe((res: any) => {
+        this.user = res['user'];
         this.updateForm.patchValue(this.user);
-      }, err => {
-        console.log(err);
+        // console.log(this.user);
       });
-    });
+    } else {
+      window.alert('Please Logged In');
+      this.route.navigate(['/login']);
+    }
   }
-
   update(){
     if(!this.updateForm.valid){
       console.log('invalid form');

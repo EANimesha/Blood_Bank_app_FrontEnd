@@ -1,7 +1,7 @@
 import { RequestsService } from './../requests.service';
 import { User } from './../models/User';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from '../authentication.service';
 
 @Component({
@@ -14,22 +14,31 @@ export class UserhomeComponent implements OnInit {
   user: User;
   id;
   first_name: string;
-  donar:Boolean;
-  constructor(private route: ActivatedRoute , private _auth: AuthenticationService, private _req: RequestsService) {
+  donar: boolean;
+  constructor(private route: Router , private _auth: AuthenticationService, private _req: RequestsService) {
     // console.log()
   }
 
   ngOnInit() {
-    this.route.paramMap.subscribe(params => {
-      this.id = params.get('id');
-      // console.log(this.id)
-      this._auth.getUser(this.id).subscribe((res: any) => {
-        this.user = res[0];
-        console.log(this.user);
-      }, err => {
-        console.log(err);
+    if (this._auth.isLoggedIn) {
+      this._auth.getUser(123).subscribe((res: any) => {
+        this.user = res['user'];
+        // console.log(this.user);
       });
-    });
+    } else {
+      window.alert('Please Logged In');
+      this.route.navigate(['/login']);
+    }
+    // this.route.paramMap.subscribe(params => {
+    //   this.id = params.get('id');
+    //   // console.log(this.id)
+    //   this._auth.getUser(this.id).subscribe((res: any) => {
+    //     this.user = res[0];
+    //     console.log(this.user);
+    //   }, err => {
+    //     console.log(err);
+    //   });
+  }
 
     // //getDonars
     // this._auth.getDonars()
@@ -41,7 +50,3 @@ export class UserhomeComponent implements OnInit {
     // });
 
   }
-
-
-
-}

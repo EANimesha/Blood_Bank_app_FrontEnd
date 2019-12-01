@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     // console.log(JSON.stringify(this.loginForm.value));
     this._auth.login(JSON.stringify(this.loginForm.value))
     .subscribe(
-      (data:any) => {
+      (data: any) => {
         this.token = data;
         this._auth.saveToken(this.token);
         // this.user = data;

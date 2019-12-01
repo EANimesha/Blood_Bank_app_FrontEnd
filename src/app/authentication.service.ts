@@ -73,8 +73,13 @@ export class AuthenticationService {
   }
 
   getUser(id: any){
-    const headers = new HttpHeaders({Authorization: `Bearer ${this.getToken()}`}).set('Content-Type', 'application/json');
+    const headers = new HttpHeaders({Authorization: this.getToken()}).set('Content-Type', 'application/json');
     return this._http.get('http://127.0.0.1:3000/viewers/user',{headers});
+  }
+
+  getUserById(id:any){
+    const headers = new HttpHeaders().set('Content-Type', 'application/json');
+    return this._http.get('http://127.0.0.1:3000/viewers/user/'+ id,{headers});
   }
 
   getDonars(){
